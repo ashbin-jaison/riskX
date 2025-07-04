@@ -1,13 +1,12 @@
 streamlit
 pandas
-xarray
 numpy
-matplotlib
+xarray
 scipy
+matplotlib
 geopandas
 osmnx
 shapely
 pydeck
 geopy
-docx
-io
+python-docx
