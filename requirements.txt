@@ -10,3 +10,4 @@ shapely
 pydeck
 geopy
 python-docx
+netCDF4
