@@ -3,3 +3,11 @@ pandas
 xarray
 numpy
 matplotlib
+scipy
+geopandas
+osmnx
+shapely
+pydeck
+geopy
+docx
+io
