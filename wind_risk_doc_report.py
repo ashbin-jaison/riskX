@@ -18,13 +18,13 @@ import io # For handling byte streams for DOCX download
 
 # --- Configuration Parameters ---
 # IMPORTANT: Adjust these paths to your actual NetCDF file locations
-wind_data_path = r'C:\Users\aja052\OneDrive - University of Bergen\ClimateIntelligence\bergen_return_period_winds_1985_2020_debugged.nc'
-klawa_base_data_path = r'C:\Users\aja052\OneDrive - University of Bergen\ClimateIntelligence\klawa_risk_index.nc'
-klawa_v99_data_path = r'C:\Users\aja052\OneDrive - University of Bergen\ClimateIntelligence\klawa_risk_index_v99.nc'
-klawa_v995_data_path = r'C:\Users\aja052\OneDrive - University of Bergen\ClimateIntelligence\klawa_risk_index_v995.nc'
+wind_data_path = 'bergen_return_period_winds_1985_2020_debugged.nc'
+klawa_base_data_path = 'klawa_risk_index.nc'
+klawa_v99_data_path = 'klawa_risk_index_v99.nc'
+klawa_v995_data_path = 'klawa_risk_index_v995.nc'
 
 # Logo file paths - ADJUST THESE TO YOUR EXACT FILE LOCATIONS
-LOGO_PATH_1 = r'C:\Users\aja052\OneDrive - University of Bergen\ClimateIntelligence\cl_logo_tp.png'
+LOGO_PATH_1 = 'cl_logo_tp.png'
 
 # Vulnerability curve parameters for different building types: D(U10) = 1 / (1 + exp(-k * (U10 - v0)))
 # L is implicitly 1.0 (100% damage ratio) for all these functions.
