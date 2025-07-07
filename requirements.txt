@@ -11,3 +11,4 @@ pydeck
 geopy
 python-docx
 netCDF4
+openpyxl
