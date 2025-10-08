@@ -1,31 +1,99 @@
+# WindRisk
+
 🌍 Introduction
-RiskX is designed to quantify the chronic risks associated with climate change and extreme events at the level of individual assets. The platform enables detailed, asset-level risk assessment by combining high-resolution hazard modelling, building-level exposure data, and vulnerability functions. With limited resources, the prototype is only applied to Bergen. 
+WindRisk is a Streamlit-based application designed to quantify climate-related wind risks at the individual building level in Bergen, Norway. The platform combines high-resolution hazard modeling with building-level exposure data and vulnerability functions to enable detailed risk assessment.
 
-For each building, RiskX provides:
-Risk scores under various climate change scenarios (e.g., RCP pathways, though not implemented in the prototype) and building-level adaptation options.
+## Features
 
+- **Risk Score Analysis**: Calculate and visualize risk scores for individual buildings
+- **Damage Ratio Calculation**: Assess potential damage under different resilience scenarios
+- **Multi-Scenario Support**: Analyze risks under weak, moderate, and strong building resilience assumptions
+- **Asset Value Integration**: Include monetary asset values for financial impact assessment
+- **Interactive Visualization**: View risk indices with dynamic gauge indicators
+- **Batch Processing**: Analyze multiple properties through Excel file uploads
+- **Report Generation**: Create detailed risk assessment reports in DOCX format
 
-Loss ratios and expected damage estimates.
+## Project Structure
 
+```
+windrisk/
+├── data/                    # Data files
+│   ├── bergen_return_period_winds_*.nc  # Wind data
+│   ├── klawa_risk_index*.nc            # Risk indices
+│   └── cl_logo_tp.png                  # Assets
+├── script/                  # Application scripts
+│   └── risk.py             # Main application logic
+├── requirements.txt        # Project dependencies
+└── README.md              # Project documentation
+```
 
-Portfolio-level risk aggregation to manage systemic risk.
+## Installation
 
-🧭 Methodology Overview
-Risk in RiskX is conceptualized as the combination of three key components:
-Risk=Hazard×Exposure×Vulnerability
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/windrisk.git
+   cd windrisk
+   ```
 
-Hazard: The probability and intensity of damaging events, e.g., windstorms under current and future climate conditions.
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
 
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Exposure: The physical assets at risk, described by their location, type, value, and structural characteristics.
+## Usage
 
+1. Start the Streamlit application:
+   ```bash
+   streamlit run script/risk.py
+   ```
 
-Vulnerability: The expected damage given a hazard level, determined by the building characteristics such as materials, and resilience measures.
+2. Open your web browser to the URL shown in the terminal (typically http://localhost:8501)
 
-By integrating these three elements at high spatial resolution, RiskX aims to:
-✅ Asset-level risk mapping
- ✅ Scenario-based planning (including climate change and adaptation levels)
- ✅ Portfolio risk evaluation under evolving climate conditions
+3. Features available in the application:
+   - Enter an address to find the nearest building
+   - Select building resilience level (Weak/Moderate/Strong)
+   - View wind speed and damage ratios for different return periods
+   - Enter asset values to calculate potential monetary losses
+   - Upload Excel files for batch analysis
+   - Generate detailed reports
+
+## Data Sources
+
+- Wind speed data: Return period winds for Bergen (1985-2020)
+- Risk indices: KLAWA risk index data for different adaptation scenarios
+- Building data: Local building footprints and characteristics
+
+## Risk Assessment Methodology
+The risk assessment follows these key steps:
+
+1. **Location Identification**: Uses geocoding to find buildings near specified addresses
+2. **Wind Speed Analysis**: Evaluates wind speeds at different return periods
+3. **Damage Ratio Calculation**: Computes potential damage based on building resilience
+4. **Risk Index Computation**: Generates normalized risk indices for different adaptation levels
+5. **Financial Impact**: Calculates potential monetary losses based on asset values
+
+## Limitations and Assumptions
+
+- Geographic scope limited to Bergen, Norway
+- Risk calculations based on historical wind data (1985-2020)
+- Building resilience categories are simplified into three levels
+- Damage calculations assume standard vulnerability curves
+
+## Development Status
+
+This is a prototype version of WindRisk demonstrating the core functionality of building-level wind risk assessment. Future enhancements may include:
+
+- Extended geographic coverage
+- Additional climate scenarios
+- More detailed building vulnerability models
+- Enhanced batch processing capabilities
+- Advanced visualization features
 
 
 Hazard: Wind Data and Downscaling Methodology
