@@ -97,7 +97,7 @@ This is a prototype version of WindRisk demonstrating the core functionality of 
 
 
 Hazard: Wind Data and Downscaling Methodology
-This section explains how RiskX estimates high-resolution wind hazard layers suitable for asset-level risk analysis. The goal is to provide detailed wind speed maps that account for local terrain effects, using both existing climate model data and statistical methods.
+This section explains how WindRisk estimates high-resolution wind hazard layers suitable for asset-level risk analysis. The goal is to provide detailed wind speed maps that account for local terrain effects, using both existing climate model data and statistical methods.
 
 1. Source Data: NORA3 Wind Speeds
 The NORA3 dataset provides wind gust data over Northern Europe at ~3 km spatial resolution.
@@ -109,13 +109,13 @@ While NORA3 is excellent for regional analyses, its resolution is too coarse for
 Wind speeds are highly influenced by local terrain features such as hills, valleys, and land cover.
 
 
-To model these local effects, RiskX downscales the coarse wind fields to a ~90 m resolution grid (this can be further downscaled to 30m resolution).
+To model these local effects, WindRisk downscales the coarse wind fields to a ~90 m resolution grid (this can be further downscaled to 30m resolution).
 
 
 This enables detailed estimation of wind hazard for individual buildings or infrastructure assets.
 
 3. Statistical Downscaling Approach
-RiskX uses statistical learning methods to model the relationship between wind speed and terrain features. The general idea:
+WindRisk uses statistical learning methods to model the relationship between wind speed and terrain features. The general idea:
 Coarse-resolution wind data is paired with terrain variables to learn how wind speeds vary with local features.
 
 
@@ -161,7 +161,7 @@ NORA3 wind speed data: Regional climate reanalysis at ~3 km resolution.
 Digital Elevation Model (DEM): Copernicus DEM at ~90 m resolution.
 
 5. Planned Enhancements and Calibration
-RiskX is designed to be modular and upgradable. Planned improvements include:
+WindRisk is designed to be modular and upgradable. Planned improvements include:
 Incorporating observational wind station data for calibration and validation of downscaled fields.
 
 
@@ -190,8 +190,8 @@ Initial implementations used simpler models (e.g., elevation only) while advance
 
 Local microclimate effects (urban roughness, small-scale channeling) may not be fully captured without further calibration.
 
-7. How It’s Used in RiskX
-Downscaled wind speed maps at ~90 m resolution serve as the hazard layer in RiskX’s risk calculations.
+7. How It’s Used in WindRisk
+Downscaled wind speed maps at ~90 m resolution serve as the hazard layer in WindRisk’s risk calculations.
 
 
 Each asset is overlaid on these layers to extract wind speeds at various return periods (e.g., 2-, 5-, 10-, 50-, 100-, 200-year events).
@@ -202,10 +202,10 @@ These hazard estimates feed into the damage functions and vulnerability curves t
 
 
  ✅ Summary
- RiskX transforms coarse regional wind data into high-resolution, asset-level hazard maps using statistical downscaling techniques. This process enables insurers, banks and asset owners to quantify wind risk at the level of individual buildings, while also supporting future climate scenario analysis.
+ WindRisk transforms coarse regional wind data into high-resolution, asset-level hazard maps using statistical downscaling techniques. This process enables insurers, banks and asset owners to quantify wind risk at the level of individual buildings, while also supporting future climate scenario analysis.
 
 🏠 Exposure: Building-Level Data
-Accurate exposure data is essential for asset-level climate risk assessment. In the RiskX framework, exposure represents the characteristics of individual buildings that determine their susceptibility to wind damage.
+Accurate exposure data is essential for asset-level climate risk assessment. In the WindRisk framework, exposure represents the characteristics of individual buildings that determine their susceptibility to wind damage.
 
 1. Current Data Sources
 OpenStreetMap (OSM) provides widespread coverage of building footprints (shapes and locations).
@@ -229,7 +229,7 @@ Building material (e.g., wood, concrete, steel)
 Construction year or age (proxy for building codes and resilience standards)
 
 
-These variables directly influence vulnerability curves and damage functions used in RiskX.
+These variables directly influence vulnerability curves and damage functions used in WindRisk.
 
 3. Challenges
 Such detailed attributes are rarely available in open data globally.
@@ -257,23 +257,23 @@ Multi-source data fusion can combine OSM shapes, and remote sensing features.
 Machine learning approaches will be trained on regions with labeled data and generalized to new geographies.
 These methods promise to systematically generate the critical building attributes necessary for asset-level risk modeling, even in data-poor regions.
 
-5. Role in RiskX Calculations
+5. Role in WindRisk Calculations
 Each building’s attributes influence its vulnerability curve—the mathematical function relating wind speed to expected damage.
 
 
 Accurate exposure data enables tailored risk estimates rather than relying on generic assumptions.
 
 
-As RiskX improves exposure data enrichment, the precision of loss forecasts for individual assets will increase substantially.
+As WindRisk improves exposure data enrichment, the precision of loss forecasts for individual assets will increase substantially.
 
 ✅ Summary
-While current open data (like OSM) offers only basic building shapes, RiskX will extend these footprints with advanced AI-driven mapping of critical structural details. This enables a truly asset-level risk assessment capable of supporting insurers, banks, and public planners in understanding climate-related wind risk in unprecedented detail.
+While current open data (like OSM) offers only basic building shapes, WindRisk will extend these footprints with advanced AI-driven mapping of critical structural details. This enables a truly asset-level risk assessment capable of supporting insurers, banks, and public planners in understanding climate-related wind risk in unprecedented detail.
 
 🧱 Vulnerability: Estimating Wind Damage to Buildings
-The vulnerability module in RiskX translates wind hazard into expected damage at the individual building level. This is achieved using vulnerability curves—functions that relate wind speed to the fraction of asset value likely to be damaged.
+The vulnerability module in WindRisk translates wind hazard into expected damage at the individual building level. This is achieved using vulnerability curves—functions that relate wind speed to the fraction of asset value likely to be damaged.
 
 1. Current Approach
-RiskX currently adopts generalized vulnerability curves derived from Koks & Haer (2020), who developed a high-resolution wind damage model for Europe.
+WindRisk currently adopts generalized vulnerability curves derived from Koks & Haer (2020), who developed a high-resolution wind damage model for Europe.
 
 
 
@@ -304,7 +304,7 @@ For the initial prototype, standardized damage functions are applied across simi
 These curves represent average expected damage for given wind speed thresholds.
 
 4. Planned Enhancements
-RiskX is designed to support progressive refinement of vulnerability estimation:
+WindRisk is designed to support progressive refinement of vulnerability estimation:
 Incorporation of proprietary insurance claims data to locally calibrate vulnerability curves.
 
 
@@ -352,10 +352,10 @@ Scenario-based loss estimates (e.g., 10-, 50-, 100-year events)
 
 
 ✅ Summary
-RiskX's vulnerability module applies proven, peer-reviewed damage functions to estimate wind damage at building scale. While initial implementations use generalized curves (Koks & Haer, 2020), the platform is designed to integrate regionally calibrated, proprietary, or engineering-based models over time, increasing accuracy and value for insurers, planners, and asset owners.
+WindRisk's vulnerability module applies proven, peer-reviewed damage functions to estimate wind damage at building scale. While initial implementations use generalized curves (Koks & Haer, 2020), the platform is designed to integrate regionally calibrated, proprietary, or engineering-based models over time, increasing accuracy and value for insurers, planners, and asset owners.
 
 📈 Risk Score Computation
-RiskX assigns risk scores to individual buildings to reflect their relative wind hazard exposure under current and future climate conditions, including adaptation scenarios.
+WindRisk assigns risk scores to individual buildings to reflect their relative wind hazard exposure under current and future climate conditions, including adaptation scenarios.
 The computation follows these steps:
 1 Wind Speed Normalization
 For each grid point, the maximum wind gust v_max is compared to a defined adaptation threshold v_threshold:
@@ -399,12 +399,12 @@ This ensures relative comparability across all assets in the study area.
 
 
 ✅ Interpretation:
-A higher RiskX score indicates a building is significantly more exposed to damaging wind events relative to its local adaptation threshold. This enables users to prioritize adaptation investments, insurance pricing adjustments, or urban planning interventions.
+A higher WindRisk score indicates a building is significantly more exposed to damaging wind events relative to its local adaptation threshold. This enables users to prioritize adaptation investments, insurance pricing adjustments, or urban planning interventions.
 
-🌐 RiskX Interactive Application
-An interactive web application has been developed to demonstrate and explore RiskX’s asset-level wind risk assessment.
+🌐 WindRisk Interactive Application
+An interactive web application has been developed to demonstrate and explore WindRisk’s asset-level wind risk assessment.
 ✅ Users can access the app here:
- RiskX Demo Application
+ WindRisk Demo Application
 
 Purpose
 The app allows to:
@@ -422,7 +422,7 @@ Access and Sharing
 The hosted application is publicly accessible to facilitate review, collaboration, and feedback.
 
 
-It is intended for demonstration purposes and can be used to showcase RiskX’s preliminary version.
+It is intended for demonstration purposes and can be used to showcase WindRisk’s preliminary version.
 
 ✅ Note: The current version is only a prototype.
 
