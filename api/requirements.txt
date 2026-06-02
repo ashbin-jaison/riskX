@@ -1,0 +1,16 @@
+streamlit
+xarray
+numpy
+pandas
+matplotlib
+scipy
+geopandas
+osmnx
+shapely
+pydeck
+geopy
+python-docx
+fastapi
+uvicorn
+python-multipart
+openpyxl
