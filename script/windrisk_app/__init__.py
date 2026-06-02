@@ -1,0 +1,1 @@
+"""WindRisk Streamlit application package."""
