@@ -7,7 +7,7 @@ import {
   AlertTriangle, X, ChevronRight,
 } from 'lucide-react';
 
-const API_BASE = 'http://localhost:8001/api';
+const API_BASE = import.meta.env.VITE_API_BASE ?? 'http://localhost:8001/api';
 
 const ADAPTATION_LEVELS = [
   { key: 'No Adaptation',     label: 'Baseline' },
